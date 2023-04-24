@@ -1,0 +1,218 @@
+<robot name="onshape">
+    <link name="frame">
+        <visual>
+            <origin xyz="0 0 0" rpy="0 -0 0" />
+            <geometry>
+                <mesh filename="file://$(find articubot_one)/description/mesh/frame.stl"/>
+            </geometry>
+            <material name="frame_material">
+                <color rgba="0.26274509803921569651 0.28235294117647058432 0.30196078431372547213 1.0"/>
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 -0 0" />
+            <geometry>
+                <mesh filename="file://$(find articubot_one)/description/mesh/frame.stl"/>
+            </geometry>
+        </collision>
+        <inertial>
+            <origin xyz="0.26525382311209211306 -0.16550843449471855373 7.0156077565831264286e-05" rpy="0 0 0"/>
+            <mass value="17.760400000000000631" />
+            <inertia ixx="0.22388833808870678421" ixy="0.001352207977297834908" ixz="-0.011778303736402324919" iyy="0.66998204501760494356" iyz="0.00013481649061958977292" izz="0.86622765126859035956" />
+        </inertial>
+    </link>
+
+    <link name="wheelbl">
+        <visual>
+            <origin xyz="-0.075000000000000011102 0.05999999999999999778 -5.5511151231257827021e-17" rpy="-1.570796326794896558 -0 0" />
+            <geometry>
+                <mesh filename="file://$(find articubot_one)/description/mesh/wheelbl.stl"/>
+            </geometry>
+            <material name="wheelbl_material">
+                <color rgba="0.49803921568627451677 0.49803921568627451677 0.49803921568627451677 1.0"/>
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="-0.075000000000000011102 0.05999999999999999778 -5.5511151231257827021e-17" rpy="-1.570796326794896558 -0 0" />
+            <geometry>
+                <mesh filename="file://$(find articubot_one)/description/mesh/wheelbl.stl"/>
+            </geometry>
+        </collision>
+        <inertial>
+            <origin xyz="1.3877787807814456755e-17 -6.9388939039072283776e-18 -0.04000000000000001471" rpy="0 0 0"/>
+            <mass value="5.496530506720703535" />
+            <inertia ixx="0.027975050058163912492" ixy="0" ixz="0" iyy="0.027975050058163912492" iyz="0" izz="0.050087134242492406533" />
+        </inertial>
+    </link>
+
+    <joint name="wheelBL" type="revolute">
+        <origin xyz="0.075000000000000080491 0 -0.10000000000000006106" rpy="-1.570796326794896558 -0 3.141592653589793116" />
+        <parent link="frame" />
+        <child link="wheelbl" />
+        <axis xyz="0 0 1"/>
+        <limit effort="1" velocity="20" />
+        <joint_properties friction="0.0"/>
+    </joint>
+
+    <link name="wheelbr">
+        <visual>
+            <origin xyz="-0.075000000000000011102 -0.060000000000000011657 0.33000000000000001554" rpy="1.570796326794896558 -0 5.5511151231257827021e-17" />
+            <geometry>
+                <mesh filename="file://$(find articubot_one)/description/mesh/wheelbr.stl"/>
+            </geometry>
+            <material name="wheelbr_material">
+                <color rgba="0.49803921568627451677 0.49803921568627451677 0.49803921568627451677 1.0"/>
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="-0.075000000000000011102 -0.060000000000000011657 0.33000000000000001554" rpy="1.570796326794896558 -0 5.5511151231257827021e-17" />
+            <geometry>
+                <mesh filename="file://$(find articubot_one)/description/mesh/wheelbr.stl"/>
+            </geometry>
+        </collision>
+        <inertial>
+            <origin xyz="1.3877787807814456755e-17 1.3877787807814456755e-17 -0.039999999999999980016" rpy="0 0 0"/>
+            <mass value="5.496530506720703535" />
+            <inertia ixx="0.027975050058163919431" ixy="3.1058544689614911883e-18" ixz="0" iyy="0.027975050058163933309" iyz="0" izz="0.050087134242492420411" />
+        </inertial>
+    </link>
+
+    <joint name="wheelBR" type="revolute">
+        <origin xyz="0.07500000000000002498 -0.33000000000000001554 -0.10000000000000003331" rpy="1.570796326794896558 -0.75620673034660657041 3.141592653589793116" />
+        <parent link="frame" />
+        <child link="wheelbr" />
+        <axis xyz="0 0 1"/>
+        <limit effort="1" velocity="20" />
+        <joint_properties friction="0.0"/>
+    </joint>
+
+    <link name="mount_wheelfr">
+        <visual>
+            <origin xyz="-0.54000000000000025757 0.33000000000000001554 0.02999999999999999889" rpy="0 -0 0" />
+            <geometry>
+                <mesh filename="file://$(find articubot_one)/description/mesh/mount_wheelfr.stl"/>
+            </geometry>
+            <material name="mount_wheelfr_material">
+                <color rgba="0.26274509803921569651 0.28235294117647058432 0.30196078431372547213 1.0"/>
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="-0.54000000000000025757 0.33000000000000001554 0.02999999999999999889" rpy="0 -0 0" />
+            <geometry>
+                <mesh filename="file://$(find articubot_one)/description/mesh/mount_wheelfr.stl"/>
+            </geometry>
+        </collision>
+        <inertial>
+            <origin xyz="-1.1102230246251565404e-16 0.0099999999999999533706 -0.05999999999999999778" rpy="0 0 0"/>
+            <mass value="0.67200000000000004174" />
+            <inertia ixx="0.00082879999999999824471" ixy="0" ixz="0" iyy="0.0013664000000000000364" iyz="0" izz="0.00058239999999999843543" />
+        </inertial>
+    </link>
+
+    <link name="wheelfr">
+        <visual>
+            <origin xyz="-0.59000000000000007994 -0.13999999999999998557 0.33000000000000001554" rpy="1.570796326794896558 2.5348653996767595351e-17 2.7755575615628913511e-17" />
+            <geometry>
+                <mesh filename="file://$(find articubot_one)/description/mesh/wheelfr.stl"/>
+            </geometry>
+            <material name="wheelfr_material">
+                <color rgba="0.80000000000000004441 0.80000000000000004441 0.80000000000000004441 1.0"/>
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="-0.59000000000000007994 -0.13999999999999998557 0.33000000000000001554" rpy="1.570796326794896558 2.5348653996767595351e-17 2.7755575615628913511e-17" />
+            <geometry>
+                <mesh filename="file://$(find articubot_one)/description/mesh/wheelfr.stl"/>
+            </geometry>
+        </collision>
+        <inertial>
+            <origin xyz="0 2.7755575615628913511e-17 -0.014999999999999959546" rpy="0 0 0"/>
+            <mass value="0.63617251235193172931" />
+            <inertia ixx="0.0009423305339212979196" ixy="2.6154926389168551271e-20" ixz="-7.3548063292622046905e-20" iyy="0.00094233053392129770276" iyz="1.1550594056633111601e-20" izz="0.0017892351909898059157" />
+        </inertial>
+    </link>
+
+    <joint name="wheelFR" type="revolute">
+        <origin xyz="0.049999999999999877875 5.5511151231257827021e-17 -0.1199999999999999678" rpy="1.570796326794896558 -0.18362507183038750957 -3.141592653589793116" />
+        <parent link="mount_wheelfr" />
+        <child link="wheelfr" />
+        <axis xyz="0 0 1"/>
+        <limit effort="1" velocity="20" />
+        <joint_properties friction="0.0"/>
+    </joint>
+
+    <joint name="wheelFRmount" type="revolute">
+        <origin xyz="0.54000000000000025757 -0.33000000000000007105 -0.02999999999999999889" rpy="0 -0 1.8319708278576181115" />
+        <parent link="frame" />
+        <child link="mount_wheelfr" />
+        <axis xyz="0 0 1"/>
+        <limit effort="1" velocity="20" />
+        <joint_properties friction="0.0"/>
+    </joint>
+
+    <link name="mount_wheelfl">
+        <visual>
+            <origin xyz="-0.54000000000000003553 2.7755575615628913511e-17 0.02999999999999999889" rpy="0 -0 0" />
+            <geometry>
+                <mesh filename="file://$(find articubot_one)/description/mesh/mount_wheelfl.stl"/>
+            </geometry>
+            <material name="mount_wheelfl_material">
+                <color rgba="0.26274509803921569651 0.28235294117647058432 0.30196078431372547213 1.0"/>
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="-0.54000000000000003553 2.7755575615628913511e-17 0.02999999999999999889" rpy="0 -0 0" />
+            <geometry>
+                <mesh filename="file://$(find articubot_one)/description/mesh/mount_wheelfl.stl"/>
+            </geometry>
+        </collision>
+        <inertial>
+            <origin xyz="1.1102230246251565404e-16 -0.0099999999999999689831 -0.05999999999999999778" rpy="0 0 0"/>
+            <mass value="0.67199999999999993072" />
+            <inertia ixx="0.00082879999999999943733" ixy="0" ixz="0" iyy="0.0013664000000000006869" iyz="0" izz="0.00058240000000000125436" />
+        </inertial>
+    </link>
+
+    <link name="wheelfl">
+        <visual>
+            <origin xyz="-0.59000000000000030198 0.14000000000000017986 2.7755575615628913511e-17" rpy="-1.570796326794896558 5.079693904925191655e-18 0" />
+            <geometry>
+                <mesh filename="file://$(find articubot_one)/description/mesh/wheelfl.stl"/>
+            </geometry>
+            <material name="wheelfl_material">
+                <color rgba="0.80000000000000004441 0.80000000000000004441 0.80000000000000004441 1.0"/>
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="-0.59000000000000030198 0.14000000000000017986 2.7755575615628913511e-17" rpy="-1.570796326794896558 5.079693904925191655e-18 0" />
+            <geometry>
+                <mesh filename="file://$(find articubot_one)/description/mesh/wheelfl.stl"/>
+            </geometry>
+        </collision>
+        <inertial>
+            <origin xyz="-2.2204460492503130808e-16 2.2204460492503130808e-16 -0.014999999999999959546" rpy="0 0 0"/>
+            <mass value="0.63617251235193172931" />
+            <inertia ixx="0.0009423305339212979196" ixy="2.6154926389168542243e-20" ixz="-4.7867506695849182892e-21" iyy="0.00094233053392129748592" iyz="-5.3794339452346682701e-21" izz="0.0017892351909898059157" />
+        </inertial>
+    </link>
+
+    <joint name="wheelFL" type="revolute">
+        <origin xyz="0.050000000000000044409 -2.7755575615628913511e-17 -0.12000000000000002331" rpy="1.570796326794896558 -1.3538244723139341019 3.2232926716170811866e-17" />
+        <parent link="mount_wheelfl" />
+        <child link="wheelfl" />
+        <axis xyz="0 0 1"/>
+        <limit effort="1" velocity="20" />
+        <joint_properties friction="0.0"/>
+    </joint>
+
+    <joint name="wheelFLmount" type="revolute">
+        <origin xyz="0.53999999999999970246 0 -0.030000000000000002359" rpy="0 -0 -0.29973037667082597091" />
+        <parent link="frame" />
+        <child link="mount_wheelfl" />
+        <axis xyz="0 0 1"/>
+        <limit effort="1" velocity="20" />
+        <joint_properties friction="0.0"/>
+    </joint>
+
+
+</robot>
